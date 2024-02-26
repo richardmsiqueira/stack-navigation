@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Home from './src/screens/Home';
-import Contact from './src/screens/Contact';
-import Profile from './src/screens/Profile';
+import Home from './src/screens/Home/index';
+import Contact from './src/screens/Contact/index';
+import Profile from './src/screens/Profile/index';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -13,9 +13,41 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Contact" component={Contact} />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Home" component={Home} options={{
+          title: 'Tela Inicial',
+          headerStyle: {
+            backgroundColor: '#add8e6'
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerTitleAlign: 'center',
+        }} />
+        <Stack.Screen name="Contact" component={Contact} options={{
+          title: 'Contato',
+          headerStyle: {
+            backgroundColor: '#add8e6'
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerTitleAlign: 'center',
+          headerShown: false
+        }}/>
+        <Stack.Screen name="Profile" component={Profile} options={{
+          title: 'Perfil',
+          headerStyle: {
+            backgroundColor: '#add8e6'
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerTitleAlign: 'center',
+          headerShown: false
+        }}/>
       </Stack.Navigator>
       <StatusBar styles="auto" />
     </NavigationContainer>
